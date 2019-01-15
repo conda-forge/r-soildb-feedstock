@@ -23,21 +23,23 @@ requirements:
   build:
     - r-base
     - r-hmisc
-    - r-xml
+    - r-xml2
     - r-aqp
     - r-plyr
     - r-raster
     - r-reshape2
     - r-sp
+    - r-curl
   run:
     - r-base
     - r-hmisc
-    - r-xml
+    - r-xml2
     - r-aqp
     - r-plyr
     - r-raster
     - r-reshape2
     - r-sp
+    - r-curl
 
 test:
   commands:
