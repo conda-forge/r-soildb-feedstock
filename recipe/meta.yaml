@@ -1,61 +1,86 @@
-{% set version = "2.4.1" %}
+{% set version = '2.4.1' %}
+{% set posix = 'm2-' if win else '' %}
+{% set native = 'm2w64-' if win else '' %}
 
 package:
   name: r-soildb
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: soilDB_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/soilDB_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/soilDB/soilDB_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/soilDB_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/soilDB/soilDB_{{ version }}.tar.gz
   sha256: 5749aebac01ae2a607fe87ca22f59247108de74fe534afdf325bfe6b1dbe8429
 
 build:
-  noarch: generic
+  merge_build_host: True  # [win]
   number: 0
-  script: R CMD INSTALL --build .
+  noarch: generic
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
+    - {{posix}}zip               # [win]
+  host:
     - r-base
-    - r-hmisc
-    - r-xml2
     - r-aqp
+    - r-curl
+    - r-lattice
     - r-plyr
     - r-raster
     - r-reshape2
     - r-sp
-    - r-curl
+    - r-xml2
   run:
     - r-base
-    - r-hmisc
-    - r-xml2
     - r-aqp
+    - r-curl
+    - r-lattice
     - r-plyr
     - r-raster
     - r-reshape2
     - r-sp
-    - r-curl
+    - r-xml2
 
 test:
   commands:
-    - $R -e "library('soilDB')"  # [not win]
+    - $R -e "library('soilDB')"           # [not win]
     - "\"%R%\" -e \"library('soilDB')\""  # [win]
 
 about:
   home: http://ncss-tech.github.io/AQP/
-  license: GPL (>= 3)
-  license_family: GPL3
+  license: GPL-3
   summary: A collection of functions for reading data from USDA-NCSS soil databases.
+  license_family: GPL3
+  license_file:
+    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
 
 extra:
   recipe-maintainers:
     - conda-forge/r
     - ocefpaf
-    - bgruening
-    - jdblischak
     - rvalieris
+
+# Package: soilDB
+# Type: Package
+# Title: Soil Database Interface
+# Version: 2.4.1
+# Date: 2019-11-06
+# Authors@R: c(person(given="Dylan", family="Beaudette", role = c("cre", "aut"), email = "dylan.beaudette@usda.gov"), person(given="Jay", family="Skovlin", role = c("aut")), person(given="Stephen", family="Roecker", role = c("aut")) )
+# Author: Dylan Beaudette [cre, aut], Jay Skovlin [aut], Stephen Roecker [aut]
+# Maintainer: Dylan Beaudette <dylan.beaudette@usda.gov>
+# Description: A collection of functions for reading data from USDA-NCSS soil databases.
+# License: GPL (>= 3)
+# LazyLoad: yes
+# Depends: R (>= 3.0.0)
+# Imports: aqp, grDevices, graphics, stats, utils, plyr, xml2, sp, reshape2, raster, curl, lattice
+# Suggests: dismo, rgdal, jsonlite, RODBC, httr, rgeos, rvest, testthat, stringr, latticeExtra, RCurl, XML, ggplot2, gridExtra, viridis
+# Repository: CRAN
+# URL: http://ncss-tech.github.io/AQP/
+# BugReports: https://github.com/ncss-tech/soilDB/issues
+# RoxygenNote: 6.1.1
+# NeedsCompilation: no
+# Packaged: 2019-11-07 14:27:40 UTC; Dylan.Beaudette
+# Date/Publication: 2019-11-07 16:50:02 UTC
