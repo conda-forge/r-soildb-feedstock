@@ -1,4 +1,4 @@
-{% set version = "2.3.5" %}
+{% set version = "2.4.1" %}
 
 package:
   name: r-soildb
@@ -9,11 +9,11 @@ source:
   url:
     - https://cran.r-project.org/src/contrib/soilDB_{{ version }}.tar.gz
     - https://cran.r-project.org/src/contrib/Archive/soilDB/soilDB_{{ version }}.tar.gz
-  sha256: 547d13784c06e59ee2922ba33a9fc2061bedc428e5460057284f25b052e692e2
+  sha256: 5749aebac01ae2a607fe87ca22f59247108de74fe534afdf325bfe6b1dbe8429
 
 build:
   noarch: generic
-  number: 1001
+  number: 0
   script: R CMD INSTALL --build .
   rpaths:
     - lib/R/lib/
