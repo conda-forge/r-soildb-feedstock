@@ -1,4 +1,4 @@
-{% set version = '2.4.1' %}
+{% set version = "2.5" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/soilDB_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/soilDB/soilDB_{{ version }}.tar.gz
-  sha256: 5749aebac01ae2a607fe87ca22f59247108de74fe534afdf325bfe6b1dbe8429
+  sha256: 78f2fcf00a956d6bae2ed69da8f6f5209cec5fd1be9f4c10dd6c6f1c7d224b82
 
 build:
   merge_build_host: True  # [win]
