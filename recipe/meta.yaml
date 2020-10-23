@@ -1,4 +1,4 @@
-{% set version = "2.5" %}
+{% set version = "2.5.8" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/soilDB_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/soilDB/soilDB_{{ version }}.tar.gz
-  sha256: 78f2fcf00a956d6bae2ed69da8f6f5209cec5fd1be9f4c10dd6c6f1c7d224b82
+  sha256: 1ea39abfd82bcdbd5f3cc40c53b2e520d65b3817063008eba400fe9c06837aa2
 
 build:
-  merge_build_host: True  # [win]
-  number: 1
+  merge_build_host: true  # [win]
+  number: 0
   noarch: generic
   rpaths:
     - lib/R/lib/
@@ -27,6 +27,7 @@ requirements:
     - r-base
     - r-aqp
     - r-curl
+    - r-data.table
     - r-lattice
     - r-plyr
     - r-raster
@@ -37,6 +38,7 @@ requirements:
     - r-base
     - r-aqp
     - r-curl
+    - r-data.table
     - r-lattice
     - r-plyr
     - r-raster
@@ -51,11 +53,11 @@ test:
 
 about:
   home: http://ncss-tech.github.io/AQP/
-  license: GPL-3
+  license: GPL-3.0-or-later
   summary: A collection of functions for reading data from USDA-NCSS soil databases.
   license_family: GPL3
   license_file:
-    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
 
 extra:
   recipe-maintainers:
