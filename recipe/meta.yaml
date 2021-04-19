@@ -25,10 +25,10 @@ requirements:
     - {{ posix }}zip               # [win]
   host:
     - r-base
+    - r-dbi
     - r-aqp
     - r-curl
     - r-data.table
-    - r-lattice
     - r-plyr
     - r-raster
     - r-reshape2
@@ -36,10 +36,10 @@ requirements:
     - r-xml2
   run:
     - r-base
+    - r-dbi
     - r-aqp
     - r-curl
     - r-data.table
-    - r-lattice
     - r-plyr
     - r-raster
     - r-reshape2
