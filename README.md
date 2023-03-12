@@ -1,11 +1,11 @@
-About r-soildb
-==============
+About r-soildb-feedstock
+========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-soildb-feedstock/blob/main/LICENSE.txt)
 
 Home: http://ncss-tech.github.io/AQP/
 
 Package license: GPL-3.0-or-later
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-soildb-feedstock/blob/main/LICENSE.txt)
 
 Summary: A collection of functions for reading data from USDA-NCSS soil databases.
 
