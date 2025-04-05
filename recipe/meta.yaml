@@ -1,4 +1,4 @@
-{% set version = "2.8.8" %}
+{% set version = "2.8.9" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,7 +9,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/soilDB_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/soilDB/soilDB_{{ version }}.tar.gz
-  sha256: 82d17a0aa7bf2de67488995b00334bf9b2b0b7d65725c5b8f2b73332e55ce999
+  sha256: cb23c127bc64c4aad49d787229fa05902d9ea37bbf8269f0e0871650db8c7aa7
 
 build:
   number: 0
