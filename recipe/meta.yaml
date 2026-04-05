@@ -30,6 +30,7 @@ requirements:
     - r-plyr
     - r-raster
     - r-reshape2
+    - r-soildb
     - r-sp
     - r-xml2
   run:
@@ -41,6 +42,7 @@ requirements:
     - r-plyr
     - r-raster
     - r-reshape2
+    - r-soildb
     - r-sp
     - r-xml2
 
